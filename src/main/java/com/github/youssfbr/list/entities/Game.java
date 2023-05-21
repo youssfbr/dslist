@@ -18,8 +18,10 @@ public class Game {
     private String platforms;
     private Double score;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
-    private String logDescription;
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
 
     public Game() {
     }
@@ -33,7 +35,7 @@ public class Game {
         this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
-        this.logDescription = logDescription;
+        this.longDescription = logDescription;
     }
 
     public Long getId() {
@@ -101,11 +103,11 @@ public class Game {
     }
 
     public String getLogDescription() {
-        return logDescription;
+        return longDescription;
     }
 
     public void setLogDescription(String logDescription) {
-        this.logDescription = logDescription;
+        this.longDescription = logDescription;
     }
 
     @Override
