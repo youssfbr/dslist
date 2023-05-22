@@ -17,7 +17,7 @@ public class GameService implements IGameService {
     private IGameRepository gameRepository;
 
     @Override
-    @Transactional(readOnly = true )
+    @Transactional(readOnly = true)
     public List<GameMinDTO> findAll() {
         return gameRepository.findAll()
                 .stream()
