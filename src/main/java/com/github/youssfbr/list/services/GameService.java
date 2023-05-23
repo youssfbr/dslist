@@ -1,5 +1,6 @@
 package com.github.youssfbr.list.services;
 
+import com.github.youssfbr.list.dto.GameDTO;
 import com.github.youssfbr.list.dto.GameMinDTO;
 import com.github.youssfbr.list.entities.Game;
 import com.github.youssfbr.list.repositories.IGameRepository;
@@ -22,6 +23,13 @@ public class GameService implements IGameService {
         return gameRepository.findAll()
                 .stream()
                 .map(x -> new GameMinDTO(x)).toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public GameDTO findById(Long id) {
+        Game result = gameRepository.findById(id).get();
+        return new GameDTO(result);
     }
 
 }
